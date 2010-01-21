@@ -11,7 +11,7 @@ namespace Project.Core.Models.Mappings
             Map(x => x.FirstName);
             Map(x => x.LastName);
             Map(x => x.EmailAddress);
-            HasMany(x => x.Notes).Cascade.All();
+            HasMany(x => x.Notes).Cascade.AllDeleteOrphan().Inverse();
         }
     }
 }

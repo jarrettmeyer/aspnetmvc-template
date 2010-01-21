@@ -6,9 +6,10 @@ This is freely available as a sample application for the following technologies.
           project and all code in another. NO CODE (other than global.asax.cs)
           goes in the web project.
 
-        - Demonstrates RESTful Rails-like routes.
+        - Demonstrates RESTful Rails-like routes. Makes use of all HTTP methods,
+          GET, POST, PUT, and DELETE. If you have reason to not support older
+          browser models, then you will need to change the routing.
 
    + NHibernate (and Fluent NHibernate)
    
-
 Credit is appreciated but not necessary.

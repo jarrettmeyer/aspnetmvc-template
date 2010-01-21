@@ -1,4 +1,5 @@
 ﻿using FluentNHibernate.Mapping;
+using Project.Core.Models.Entities;
 
 namespace Project.Core.Models.Mappings
 {

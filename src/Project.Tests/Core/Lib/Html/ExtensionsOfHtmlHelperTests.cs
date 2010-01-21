@@ -2,7 +2,7 @@
 using Moq;
 using Xunit;
 
-namespace Project.Core
+namespace Project.Core.Lib.Html
 {
     public class ExtensionsOfHtmlHelperTests
     {
@@ -18,7 +18,7 @@ namespace Project.Core
             Assert.Contains("<link", html);
             Assert.Contains("rel=\"stylesheet\"", html);
             Assert.Contains("type=\"text/css\"", html);
-            Assert.Contains("src=\"" + MvcHelper.AppVirtualDirectory + "Content/Stylesheets/mystyle.css\"", html);
+            Assert.Contains("href=\"" + MvcHelper.AppVirtualDirectory + "Content/Stylesheets/mystyle.css\"", html);
             Assert.Contains("/>", html);
         }
 

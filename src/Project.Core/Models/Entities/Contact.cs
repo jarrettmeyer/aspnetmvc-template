@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Project.Core.Models
+namespace Project.Core.Models.Entities
 {
     public class Contact
     {
@@ -17,6 +17,7 @@ namespace Project.Core.Models
 
         public virtual void AddNote(Note note)
         {
+            note.Contact = this;
             Notes.Add(note);
         }
 

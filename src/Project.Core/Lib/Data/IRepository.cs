@@ -10,6 +10,7 @@ namespace Project.Core.Lib.Data
         void Delete<T>(T entity);
         void Insert<T>(T entity);
         IQueryable<T> Find<T>(Expression<Func<T, bool>> expression);
+        IQueryable<T> FindAll<T>();
         T FindById<T>(int id);
         T FindSingle<T>(Expression<Func<T, bool>> expression);
         void Update<T>(T entity);

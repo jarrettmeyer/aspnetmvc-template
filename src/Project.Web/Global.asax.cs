@@ -17,7 +17,7 @@ namespace Project.Web
             var relativeFilePath = context.Request.AppRelativeCurrentExecutionFilePath;
             if (RouteRegistrar.DefaultRoutes.Contains(relativeFilePath))
             {
-                context.RewritePath(string.Format("~/{0}/{1}", RouteRegistrar.DefaultController, RouteRegistrar.DefaultAction));
+                context.RewritePath("~/Contacts");
             }
         }
 
@@ -25,7 +25,7 @@ namespace Project.Web
         {
             return ServiceLocator.BuildKernel();            
         }
-
+         
         protected override void OnApplicationStarted()
         {
             RouteRegistrar.RegisterRoutes(RouteTable.Routes);

@@ -1,4 +1,5 @@
 ﻿using FluentNHibernate.Mapping;
+using Project.Core.Models.Entities;
 
 namespace Project.Core.Models.Mappings
 {
@@ -10,7 +11,7 @@ namespace Project.Core.Models.Mappings
             Map(x => x.FirstName);
             Map(x => x.LastName);
             Map(x => x.EmailAddress);
-            HasMany(x => x.Notes);
+            HasMany(x => x.Notes).Cascade.All();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Project.Core.Lib.Data
             _session = session;
         }
 
-        public void Commit()
+        public virtual void Commit()
         {
             using (var txn = _session.BeginTransaction())
             {
@@ -24,12 +24,16 @@ namespace Project.Core.Lib.Data
             }            
         }
 
-        public void Delete<T>(T entity)
+        public virtual void Delete<T>(T entity)
         {
-            _session.Delete(entity);
+            using (var txn = _session.BeginTransaction())
+            {                
+                _session.Delete(entity);
+                txn.Commit();
+            }            
         }
 
-        public void Insert<T>(T entity)
+        public virtual void Insert<T>(T entity)
         {
             using (var txn = _session.BeginTransaction())
             {
@@ -38,22 +42,27 @@ namespace Project.Core.Lib.Data
             }
         }
 
-        public IQueryable<T> Find<T>(Expression<Func<T, bool>> expression)
+        public virtual IQueryable<T> Find<T>(Expression<Func<T, bool>> expression)
         {
             return _session.Linq<T>().Where(expression);
         }
 
-        public T FindById<T>(int id)
+        public virtual IQueryable<T> FindAll<T>()
+        {
+            return _session.CreateCriteria(typeof(T)).List<T>().AsQueryable();
+        }
+
+        public virtual T FindById<T>(int id)
         {
             return _session.Get<T>(id);
         }
 
-        public T FindSingle<T>(Expression<Func<T, bool>> expression)
+        public virtual T FindSingle<T>(Expression<Func<T, bool>> expression)
         {
             return _session.Linq<T>().FirstOrDefault(expression);
         }
 
-        public void Update<T>(T entity)
+        public virtual void Update<T>(T entity)
         {
             using (var txn = _session.BeginTransaction())
             {

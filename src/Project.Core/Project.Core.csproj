@@ -35,6 +35,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\tools\nhibernate\FluentNHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\tools\log4net\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\tools\nhibernate\NHibernate.dll</HintPath>
@@ -75,21 +79,27 @@
   <ItemGroup>
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Ensure.cs" />
-    <Compile Include="ExtensionsOfHtmlHelper.cs" />
+    <Compile Include="Lib\Html\ExtensionsOfHtmlHelper.cs" />
     <Compile Include="ExtensionsOfString.cs" />
     <Compile Include="ExtensionsOfUrlHelper.cs" />
     <Compile Include="Lib\Data\IRepository.cs" />
     <Compile Include="Lib\Data\SqlRepository.cs" />
     <Compile Include="Lib\Infrastructure\INHibernateConfiguration.cs" />
+    <Compile Include="Lib\Infrastructure\ILogger.cs" />
+    <Compile Include="Lib\Infrastructure\Log.cs" />
+    <Compile Include="Lib\Infrastructure\Log4NetLogger.cs" />
+    <Compile Include="Lib\Infrastructure\LoggingModule.cs" />
     <Compile Include="Lib\Infrastructure\NHibernateModule.cs" />
     <Compile Include="Lib\Infrastructure\RouteRegistrar.cs" />
     <Compile Include="Lib\Infrastructure\ServiceLocator.cs" />
     <Compile Include="Lib\Infrastructure\SqlNHibernateSessionConfiguration.cs" />
-    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Entities\Contact.cs" />
     <Compile Include="Models\Mappings\ContactMap.cs" />
     <Compile Include="Models\Mappings\NoteMap.cs" />
-    <Compile Include="Models\Note.cs" />
+    <Compile Include="Models\Entities\Note.cs" />
+    <Compile Include="Models\ViewModels\ListNotesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

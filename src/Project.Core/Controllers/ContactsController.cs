@@ -1,12 +1,79 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Web.Mvc;
+using Project.Core.Lib.Data;
+using Project.Core.Lib.Infrastructure;
+using Project.Core.Models.Entities;
 
 namespace Project.Core.Controllers
 {
     public class ContactsController : ApplicationController
     {
-        
+        private readonly IRepository _repository;
+
+        public ContactsController(IRepository repository)
+        {
+            Ensure.ArgumentNotNull(repository, "repository");
+            _repository = repository;
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Create(Contact contact)
+        {
+            _repository.Insert(contact);            
+            return RedirectToAction("Index");
+        }
+
+        [AcceptVerbs(HttpVerbs.Delete)]
+        public ActionResult Delete(int id)
+        {
+            var contact = _repository.FindById<Contact>(id);
+            if (contact == null)
+            {
+                Log.BoundTo(this).WriteWarningMessage(string.Format("Attempted to delete contact with ID {0}", id));
+                return RedirectToAction("Index");
+            }
+            _repository.Delete(contact);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(int id)
+        {
+            var contact = _repository.FindById<Contact>(id);
+            return View(contact);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var contact = _repository.FindById<Contact>(id);
+            return View(contact);
+        }
+
+        public ActionResult Index()
+        {
+            var contacts = _repository.FindAll<Contact>();
+            return View(contacts);
+        }
+
+        public ActionResult New()
+        {
+            var contact = new Contact();
+            return View(contact);
+        }
+
+        public ActionResult Show(int id)
+        {
+            var contact = _repository.FindById<Contact>(id);
+            return View(contact);
+        }
+
+        [AcceptVerbs(HttpVerbs.Put)]
+        public ActionResult Update(int id, Contact contact)
+        {
+            var original = _repository.FindById<Contact>(id);
+            original.EmailAddress = contact.EmailAddress;
+            original.FirstName = contact.FirstName;
+            original.LastName = contact.LastName;
+            _repository.Commit();
+            return RedirectToAction("Index");
+        }
     }
 }

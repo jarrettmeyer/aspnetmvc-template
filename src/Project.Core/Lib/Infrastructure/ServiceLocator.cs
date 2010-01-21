@@ -14,7 +14,11 @@ namespace Project.Core.Lib.Infrastructure
 
         public static IKernel BuildKernel()
         {
-            var modules = new INinjectModule[] { };
+            var modules = new INinjectModule[]
+            {
+                new LoggingModule(),
+                new NHibernateModule()
+            };
             _kernel = new StandardKernel(modules);            
             return _kernel;
         }

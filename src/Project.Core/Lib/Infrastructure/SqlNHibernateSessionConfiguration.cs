@@ -1,13 +1,13 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
-using Project.Core.Models;
+using Project.Core.Models.Entities;
 
 namespace Project.Core.Lib.Infrastructure
 {
     public class SqlNHibernateSessionConfiguration
     {
-        private const string ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Sample;Integrated Security=True;";
+        private const string ConnectionString = @"Data Source=.\sqlexpress;Initial Catalog=Sample;Persist Security Info=True;User ID=sample_user;Password=sample_pass";
 
         public ISessionFactory BuildSessionFactory()
         {

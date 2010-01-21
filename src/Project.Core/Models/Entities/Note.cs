@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Project.Core.Models
+namespace Project.Core.Models.Entities
 {
     public class Note
     {

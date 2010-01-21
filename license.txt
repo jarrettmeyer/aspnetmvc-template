@@ -1,0 +1,14 @@
+This is freely available as a sample application for the following technologies.
+
+   + ASP.NET MVC
+
+        - Specifically showing how to build an application with all content in one
+          project and all code in another. NO CODE (other than global.asax.cs)
+          goes in the web project.
+
+        - Demonstrates RESTful Rails-like routes.
+
+   + NHibernate (and Fluent NHibernate)
+   
+
+Credit is appreciated but not necessary.

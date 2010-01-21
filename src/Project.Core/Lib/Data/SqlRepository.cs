@@ -16,12 +16,32 @@ namespace Project.Core.Lib.Data
             _session = session;
         }
 
+        public bool Any<T>()
+        {
+            return _session.Linq<T>().Any();
+        }
+
+        public bool Any<T>(Expression<Func<T, bool>> expression)
+        {
+            return _session.Linq<T>().Any(expression);
+        }
+
         public virtual void Commit()
         {
             using (var txn = _session.BeginTransaction())
             {
                 txn.Commit();
             }            
+        }
+
+        public int Count<T>()
+        {
+            return _session.Linq<T>().Count();
+        }
+
+        public int Count<T>(Expression<Func<T, bool>> expression)
+        {
+            return _session.Linq<T>().Count(expression);
         }
 
         public virtual void Delete<T>(T entity)

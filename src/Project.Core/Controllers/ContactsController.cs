@@ -15,14 +15,14 @@ namespace Project.Core.Controllers
             _repository = repository;
         }
 
-        [AcceptVerbs(HttpVerbs.Post)]
+        [AcceptVerbs(HttpVerbs.Post), ValidateAntiForgeryToken]
         public ActionResult Create(Contact contact)
         {
             _repository.Insert(contact);            
             return RedirectToAction("Index");
         }
 
-        [AcceptVerbs(HttpVerbs.Delete)]
+        [AcceptVerbs(HttpVerbs.Delete), ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             var contact = _repository.FindById<Contact>(id);

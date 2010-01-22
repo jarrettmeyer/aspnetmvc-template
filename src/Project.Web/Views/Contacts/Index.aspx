@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">Contacts</asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
+    <%= Html.IncludeJs("application.contacts.js") %>
     <h2>Contacts</h2>
     
     <% if (Model.Any()) { %> 
@@ -26,7 +26,7 @@
                         <td><%= Html.ActionLink("Notes", "Index", new { controller = "Notes", contactId = contact.Id })%> |
                             <%= Html.ShowLink("Details", contact.Id) %> | 
                             <%= Html.EditLink("Edit", contact.Id)%> |
-                            <%= Html.ActionLink("Delete", "Delete", new { id = contact.Id }, new { @class = "delete-link"})%>
+                            <%= Html.DeleteLink("Delete", contact.Id)%>
                         </td>
                     </tr>
                 <% } %>

@@ -6,6 +6,7 @@
     <form action="<%= Url.Action("Create") %>" method="post">
         <fieldset>
             <legend>New Contact</legend>
+            <%= Html.AntiForgeryToken() %>
             <p>
                 <%= Html.Label("First Name", "FirstName") %>
                 <%= Html.TextBox("FirstName", Model.FirstName) %>

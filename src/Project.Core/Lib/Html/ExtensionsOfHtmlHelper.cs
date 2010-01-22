@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Text;
+using System.Text.RegularExpressions;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
@@ -11,7 +12,14 @@ namespace Project.Core.Lib.Html
 
         public static string DeleteLink(this HtmlHelper html, string linkText, int id)
         {
-            return html.ActionLink(linkText, "Delete", new { id }, new { @class = "delete-link" });
+            var urlHelper = new UrlHelper(html.ViewContext.RequestContext, html.RouteCollection);
+            var url = urlHelper.Action("Delete", new { id });
+            var sb = new StringBuilder();
+            sb.AppendFormat("<form action=\"{0}\" method=\"post\" class=\"inline\">", url);
+            sb.Append(html.AntiForgeryToken());
+            sb.Append(html.ActionLink(linkText, "Delete", new { id }, new { @class = "delete-link" }));
+            sb.Append("</form>");
+            return sb.ToString();
         }
 
         public static string EditLink(this HtmlHelper html, string linkText, int id)

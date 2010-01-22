@@ -20,7 +20,7 @@
                     <td><%= Html.Encode(note.DateAdded) %></td>    
                     <td><%= Html.ShowLink("Details", note.Id) %> |
                         <%= Html.EditLink("Edit", note.Id) %> |
-                        <%= Html.DeleteLink("Delete", note.Id, "delete-note") %>
+                        <%= Html.DeleteLink("Delete", note.Id, new { @class = "delete-note" })%>
                     </td>                
                 </tr>
             <% } %>

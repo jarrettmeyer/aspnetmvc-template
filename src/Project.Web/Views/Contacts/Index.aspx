@@ -26,7 +26,7 @@
                         <td><%= Html.ActionLink("Notes", "Index", new { controller = "Notes", contactId = contact.Id })%> |
                             <%= Html.ShowLink("Details", contact.Id) %> | 
                             <%= Html.EditLink("Edit", contact.Id)%> |
-                            <%= Html.DeleteLink("Delete", contact.Id, "delete-contact")%>
+                            <%= Html.DeleteLink("Delete", contact.Id, new { @class = "delete-contact" })%>
                         </td>
                     </tr>
                 <% } %>

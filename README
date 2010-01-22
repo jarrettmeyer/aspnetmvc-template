@@ -1,26 +1,38 @@
-This is freely available as a sample application for the following technologies.
+This is freely available as a sample application for the following
+technologies.
 
    + ASP.NET MVC
 
-        - Specifically showing how to build an application with all content in one
-          project and all code in another. NO CODE (other than global.asax.cs)
-          goes in the web project.
+        - Specifically showing how to build an application with all content in
+          one project and all code in another. NO CODE (other than 
+          global.asax.cs) goes in the web project.
 
-        - Demonstrates RESTful, Rails-like routes. Makes use of all HTTP methods,
-          GET, POST, PUT, and DELETE. If you have reason to not support older
-          browser models, then you will need to change the routing.
+        - Demonstrates RESTful, Rails-like routes. Makes use of all HTTP
+          methods, GET, POST, PUT, and DELETE. If you have reason to not 
+          support older browser models, then you will need to change the 
+          routing.
           
-        - Demonstrates RESTful, Rails-like nested routes. This can be a little bit
-          tricky to do with ASP.NET MVC, since you have to write all of the
+        - Demonstrates RESTful, Rails-like nested routes. This can be a little
+          bit tricky to do with ASP.NET MVC, since you have to write all of the
           routing yourself. 
+          
+        - Demonstrates use of Anti-Forgery Tokens, including their use in 
+          javascript-enable delete links.
+          
+   + jQuery
+    
+       - Updated to jQuery 1.4.
+       
+       - References Google AJAX API's for fast loading jQuery.
 
    + NHibernate (incl. Fluent NHibernate and Linq-to-NHibernate)
    
-       - Uses simple, method-level generics for IRepository instance. This does not
-         include a per-model repository.
+       - Uses simple, method-level generics for IRepository instance. This does
+         not include a per-model repository.
    
    + Ninject
    
-        - Uses the InRequestScope option of Ninject to manage the ISession.
+        - Uses the InRequestScope option of Ninject to manage the NHibernate
+          ISession.
    
 Credit is appreciated but not necessary.

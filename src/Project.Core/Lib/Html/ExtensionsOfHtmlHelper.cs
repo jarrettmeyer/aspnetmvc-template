@@ -12,12 +12,17 @@ namespace Project.Core.Lib.Html
 
         public static string DeleteLink(this HtmlHelper html, string linkText, int id)
         {
+            return html.DeleteLink(linkText, id, "delete-link");
+        }
+
+        public static string DeleteLink(this HtmlHelper html, string linkText, int id, string cssClass)
+        {
             var urlHelper = new UrlHelper(html.ViewContext.RequestContext, html.RouteCollection);
             var url = urlHelper.Action("Delete", new { id });
             var sb = new StringBuilder();
             sb.AppendFormat("<form action=\"{0}\" method=\"post\" class=\"inline\">", url);
             sb.Append(html.AntiForgeryToken());
-            sb.Append(html.ActionLink(linkText, "Delete", new { id }, new { @class = "delete-link" }));
+            sb.Append(html.ActionLink(linkText, "Delete", new { id }, new { @class = cssClass }));
             sb.Append("</form>");
             return sb.ToString();
         }

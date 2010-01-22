@@ -12,13 +12,15 @@
             success: function() { window.location = "/Contacts/" + contactId + "/Notes" ; }
         });
     });
-    $(".delete-link").live("click", function(event) {
+    $(".delete-note").live("click", function(event) {
         event.preventDefault();
         var url = $(this).attr("href");
-        if (!window.confirm("Are you sure?")) { return; }
+        var formData = $(this).parents("form").serialize();
+        if (!window.confirm("You are about to delete a note. This is permanent and cannot be undone. Are you sure?")) { return; }
         $.ajax({
             type: "DELETE",
             url: url,
+            data: formData,
             success: function() { window.location.reload(); }
         });
     });

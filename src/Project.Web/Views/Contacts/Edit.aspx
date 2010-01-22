@@ -5,10 +5,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <%= Html.IncludeJs("application.contacts.js") %>
-    <form action="<%= Url.Action("Update") %>" method="post">
+    <%= Html.IncludeJs("application.contacts.js") %>    
+    <form action="<%= Url.Action("Update") %>" method="post">        
         <fieldset>
             <legend>Edit Contact</legend>
+            <%=Html.AntiForgeryToken() %>
             <p>
                 <%= Html.Label("First Name", "FirstName") %>
                 <%= Html.TextBox("FirstName", Model.FirstName) %>

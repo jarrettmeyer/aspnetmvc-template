@@ -16,6 +16,7 @@ namespace Project.Core.Controllers
             _repository = repository;
         }
 
+        [AcceptVerbs(HttpVerbs.Post), ValidateAntiForgeryToken]
         public ActionResult Create(int contactId, Note note)
         {
             var contact = _repository.FindById<Contact>(contactId);
@@ -25,6 +26,7 @@ namespace Project.Core.Controllers
             return RedirectToAction("Index", new { contactId });
         }
 
+        [AcceptVerbs(HttpVerbs.Delete), ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             var note = _repository.FindById<Note>(id);            
@@ -57,6 +59,7 @@ namespace Project.Core.Controllers
             return View(note);
         }
 
+        [AcceptVerbs(HttpVerbs.Put), ValidateAntiForgeryToken]
         public ActionResult Update(int id, Note note)
         {
             var original = _repository.FindById<Note>(id);            

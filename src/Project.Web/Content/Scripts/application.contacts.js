@@ -11,7 +11,7 @@
             success: function() { window.location = "/Contacts"; }
         });
     });
-    $(".delete-link").live("click", function(event) {
+    $(".delete-contact").live("click", function(event) {
         event.preventDefault();
         var url = $(this).attr("href");
         var formData = $(this).parents("form").serialize();

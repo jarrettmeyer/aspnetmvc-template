@@ -7,6 +7,7 @@
 
     <form action="<%= Url.Action("Update") %>" method="post">
         <fieldset>
+            <%= Html.AntiForgeryToken() %>
             <legend>Edit Note</legend>
             <input type="hidden" id="ContactId" name="ContactId" value="<%= Model.Contact.Id %>" />
             <p>

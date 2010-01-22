@@ -65,7 +65,7 @@ namespace Project.Core.Controllers
             return View(contact);
         }
 
-        [AcceptVerbs(HttpVerbs.Put)]
+        [AcceptVerbs(HttpVerbs.Put), ValidateAntiForgeryToken]
         public ActionResult Update(int id, Contact contact)
         {
             var original = _repository.FindById<Contact>(id);

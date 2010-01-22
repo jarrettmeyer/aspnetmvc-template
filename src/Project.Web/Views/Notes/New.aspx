@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">    
     <form action="<%= Url.Action("Create") %>" method="post">
         <fieldset>
+            <%= Html.AntiForgeryToken() %>
             <legend>New Note</legend>
             <p>
                 <%= Html.Label("Note", "NoteText") %>

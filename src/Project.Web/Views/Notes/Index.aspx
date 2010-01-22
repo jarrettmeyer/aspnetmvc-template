@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">Notes</asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
+    <%= Html.IncludeJs("application.notes.js") %>
     <h2>Notes for <%= Html.Encode(Model.Contact.EmailAddress) %></h2>
     
     <table>
@@ -20,7 +20,7 @@
                     <td><%= Html.Encode(note.DateAdded) %></td>    
                     <td><%= Html.ShowLink("Details", note.Id) %> |
                         <%= Html.EditLink("Edit", note.Id) %> |
-                        <%= Html.DeleteLink("Delete", note.Id) %>
+                        <%= Html.DeleteLink("Delete", note.Id, "delete-note") %>
                     </td>                
                 </tr>
             <% } %>

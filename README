@@ -1,6 +1,9 @@
 This is freely available as a sample application for the following
 technologies.
 
+A running version of this sample application can be found at
+http://jarrett.servebeer.com/aspnetmvc-template
+
    + ASP.NET MVC
 
         - Specifically showing how to build an application with all content in

@@ -7,7 +7,7 @@ namespace Project.Core.Lib.Infrastructure
 {
     public class SqlNHibernateSessionConfiguration
     {
-        private const string ConnectionString = @"Data Source=.\sqlexpress;Initial Catalog=Sample;Persist Security Info=True;User ID=sample_user;Password=sample_pass";
+        private const string ConnectionString = @"Data Source=.\sqlexpress;Initial Catalog=AspNetMvcTemplate;Persist Security Info=True;User ID=aspnetmvctemplate_user;Password=aspnetmvctemplate_pass";
 
         public ISessionFactory BuildSessionFactory()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using Project.Core.Lib.Data;
+using Project.Core.Lib.Infrastructure;
 using Project.Core.Models.Entities;
 using Project.Core.Models.ViewModels;
 
@@ -10,7 +11,8 @@ namespace Project.Core.Controllers
     {
         private readonly IRepository _repository;
 
-        public NotesController(IRepository repository)
+        public NotesController(IRepository repository, IAppScope appScope)
+            : base(appScope)
         {
             Ensure.ArgumentNotNull(repository, "repository");
             _repository = repository;
@@ -31,7 +33,11 @@ namespace Project.Core.Controllers
         {
             var note = _repository.FindById<Note>(id);            
             _repository.Delete(note);
-            return new EmptyResult();
+            if (_appScope.IsXhr)
+            {
+                return Json(true);
+            }
+            return RedirectToAction("Index");            
         }
 
         public ActionResult Edit(int id)

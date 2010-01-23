@@ -9,7 +9,8 @@ namespace Project.Core.Controllers
     {
         private readonly IRepository _repository;
 
-        public ContactsController(IRepository repository)
+        public ContactsController(IRepository repository, IAppScope appScope)
+            : base(appScope)
         {
             Ensure.ArgumentNotNull(repository, "repository");
             _repository = repository;

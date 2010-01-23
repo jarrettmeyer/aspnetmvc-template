@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Controllers\ContactsContollerTests.cs" />
     <Compile Include="Core\EnsureTests.cs" />
     <Compile Include="Core\Lib\Html\ExtensionsOfHtmlHelperTests.cs" />
     <Compile Include="MvcHelper.cs" />

@@ -19,7 +19,11 @@ namespace Project.Core.Controllers
         [AcceptVerbs(HttpVerbs.Post), ValidateAntiForgeryToken]
         public ActionResult Create(Contact contact)
         {
-            _repository.Insert(contact);            
+            _repository.Insert(contact);
+            if (_appScope.IsXhr)
+            {
+                return PartialView("ShowPartial", contact);
+            }
             return RedirectToAction("Index");
         }
 

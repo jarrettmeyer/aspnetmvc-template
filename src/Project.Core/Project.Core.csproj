@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Elmah, Version=1.1.11517.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\tools\elmah\Elmah.dll</HintPath>
+    </Reference>
     <Reference Include="FluentNHibernate, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\tools\nhibernate\FluentNHibernate.dll</HintPath>
@@ -85,6 +89,7 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Ensure.cs" />
+    <Compile Include="Lib\ActionFilters\HandleErrorWithElmahAttribute.cs" />
     <Compile Include="Lib\Html\ExtensionsOfHtmlHelper.cs" />
     <Compile Include="ExtensionsOfString.cs" />
     <Compile Include="ExtensionsOfUrlHelper.cs" />

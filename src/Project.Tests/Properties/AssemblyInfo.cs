@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Project.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("City of Indianapolis - Marion County")]
-[assembly: AssemblyProduct("Project.Tests")]
-[assembly: AssemblyCopyright("Copyright © City of Indianapolis - Marion County 2010")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Project")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

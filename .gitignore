@@ -3,4 +3,4 @@ obj
 _ReSharper.*
 *.suo
 *.user
-*.Publish.xml
+*.xml

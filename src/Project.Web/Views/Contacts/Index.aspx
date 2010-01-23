@@ -18,17 +18,7 @@
             </thead>
             <tbody>
                 <% foreach (var contact in Model) { %> 
-                    <tr>
-                        <td><%= Html.Encode(contact.Id) %></td>
-                        <td><%= Html.Encode(contact.FirstName) %></td>
-                        <td><%= Html.Encode(contact.LastName) %></td>
-                        <td><%= Html.Encode(contact.EmailAddress) %></td>
-                        <td><%= Html.ActionLink("Notes", "Index", new { controller = "Notes", contactId = contact.Id })%> |
-                            <%= Html.ShowLink("Details", contact.Id) %> | 
-                            <%= Html.EditLink("Edit", contact.Id)%> |
-                            <%= Html.DeleteLink("Delete", contact.Id, new { @class = "delete-contact" })%>
-                        </td>
-                    </tr>
+                    <% Html.RenderPartial("ShowControl", contact); %>
                 <% } %>
             </tbody>
         </table>

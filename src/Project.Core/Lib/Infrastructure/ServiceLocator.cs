@@ -17,7 +17,8 @@ namespace Project.Core.Lib.Infrastructure
             var modules = new INinjectModule[]
             {
                 new LoggingModule(),
-                new NHibernateModule()
+                new NHibernateModule(),
+                new WebContextModule()
             };
             _kernel = new StandardKernel(modules);            
             return _kernel;

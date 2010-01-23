@@ -32,9 +32,9 @@ namespace Project.Core.Lib.Html
             return html.ActionLink(linkText, "Edit", new { id });
         }
 
-        public static string EditLink(this HtmlHelper html, string linkText, string controllerName, int id)
+        public static string EditLink(this HtmlHelper html, string linkText, int id, object htmlAttributes)
         {
-            return html.ActionLink(linkText, "Edit", controllerName, new { id });
+            return html.ActionLink(linkText, "Edit", new { id }, htmlAttributes);
         }
 
         public static string IncludeCss(this HtmlHelper html, string css)

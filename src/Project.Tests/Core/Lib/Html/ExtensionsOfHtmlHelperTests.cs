@@ -15,11 +15,11 @@ namespace Project.Core.Lib.Html
             var htmlHelper = new HtmlHelper(viewContext, viewDataContainer.Object);
             var html = htmlHelper.IncludeCss("mystyle.css");
             Assert.NotNull(html);
-            Assert.Contains("<link", html);
-            Assert.Contains("rel=\"stylesheet\"", html);
-            Assert.Contains("type=\"text/css\"", html);
-            Assert.Contains("href=\"" + MvcHelper.AppVirtualDirectory + "Content/Stylesheets/mystyle.css\"", html);
-            Assert.Contains("/>", html);
+            Assert.Contains("<link", html.ToHtmlString());
+            Assert.Contains("rel=\"stylesheet\"", html.ToHtmlString());
+            Assert.Contains("type=\"text/css\"", html.ToHtmlString());
+            Assert.Contains("href=\"" + MvcHelper.AppVirtualDirectory + "Content/Stylesheets/mystyle.css\"", html.ToHtmlString());
+            Assert.Contains("/>", html.ToHtmlString());
         }
 
         [Fact]
@@ -31,9 +31,9 @@ namespace Project.Core.Lib.Html
             var htmlHelper = new HtmlHelper(viewContext, viewDataContainer.Object);
             var html = htmlHelper.IncludeJs("application.js");
             Assert.NotNull(html);
-            Assert.Contains("<script language=\"javascript\" type=\"text/javascript\"", html);
-            Assert.Contains("src=\"" + MvcHelper.AppVirtualDirectory + "Content/Scripts/application.js\"", html);
-            Assert.Contains("></script>", html);
+            Assert.Contains("<script language=\"javascript\" type=\"text/javascript\"", html.ToHtmlString());
+            Assert.Contains("src=\"" + MvcHelper.AppVirtualDirectory + "Content/Scripts/application.js\"", html.ToHtmlString());
+            Assert.Contains("></script>", html.ToHtmlString());
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace Project.Core.Lib.Infrastructure
+﻿using System.Collections.Generic;
+using Project.Core.Models.ViewModels.Notifications;
+
+namespace Project.Core.Lib.Infrastructure
 {
     /// <summary>
     /// Provides an application level wrapper for resources. Allows for a separation
@@ -8,6 +11,14 @@
     /// </summary>
     public interface IAppScope
     {
+        bool IsNewSession { get; }
         bool IsXhr { get; }
+        IEnumerable<INotification> Notifications { get; }
+
+        void AddError(string error);
+        void AddInfo(string info);
+        void AddSuccess(string success);
+        void AddWarning(string warning);
+        void ClearNotifications();
     }
 }

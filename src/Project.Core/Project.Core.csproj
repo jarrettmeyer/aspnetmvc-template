@@ -71,7 +71,7 @@
     <Reference Include="System.Web.Abstractions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Routing">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -88,6 +88,7 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
+    <Compile Include="Controllers\NotificationsController.cs" />
     <Compile Include="Ensure.cs" />
     <Compile Include="Lib\ActionFilters\HandleErrorWithElmahAttribute.cs" />
     <Compile Include="Lib\Html\ExtensionsOfHtmlHelper.cs" />
@@ -111,7 +112,14 @@
     <Compile Include="Models\Mappings\ContactMap.cs" />
     <Compile Include="Models\Mappings\NoteMap.cs" />
     <Compile Include="Models\Entities\Note.cs" />
+    <Compile Include="Models\ViewModels\Notifications\ErrorNotification.cs" />
+    <Compile Include="Models\ViewModels\Notifications\InfoNotification.cs" />
     <Compile Include="Models\ViewModels\ListNotesViewModel.cs" />
+    <Compile Include="Models\ViewModels\Notifications\INotification.cs" />
+    <Compile Include="Models\ViewModels\Notifications\NotificationBase.cs" />
+    <Compile Include="Models\ViewModels\Notifications\NotificationExtensions.cs" />
+    <Compile Include="Models\ViewModels\Notifications\SuccessNotification.cs" />
+    <Compile Include="Models\ViewModels\Notifications\WarningNotification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

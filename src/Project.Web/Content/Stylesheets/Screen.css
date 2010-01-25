@@ -89,6 +89,29 @@ tbody td {
   color: #000000;  
 }
 
+/* Notifications
+----------------------------------------------------------*/
+.notifications-wrapper {
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.notification {
+  width: 100%;
+  border: 3px solid #5B5B5B;
+  background-color: #C0C0C0;
+  color: #5B5B5B;
+  font-weight: bold;
+  padding: 0.8em;
+  margin-bottom: 1em;
+}
+
+.notification ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+
 /* FORM LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
 

@@ -4,18 +4,19 @@ using Project.Core.Lib.Data;
 using Project.Core.Lib.Infrastructure;
 using Project.Core.Models.Entities;
 using Project.Core.Models.ViewModels;
+using Project.Core.Models.ViewModels.Notifications;
 
 namespace Project.Core.Controllers
 {
     public class NotesController : ApplicationController
-    {
+    {        
         private readonly IRepository _repository;
 
-        public NotesController(IRepository repository, IAppScope appScope)
+        public NotesController(IRepository repository, IAppScope appScope)       
             : base(appScope)
         {
             Ensure.ArgumentNotNull(repository, "repository");
-            _repository = repository;
+            _repository = repository;            
         }
 
         [AcceptVerbs(HttpVerbs.Post), ValidateAntiForgeryToken]
@@ -25,6 +26,7 @@ namespace Project.Core.Controllers
             note.DateAdded = DateTime.Now;
             contact.AddNote(note);
             _repository.Commit();
+            _appScope.AddSuccess(string.Format("Successfully created new note for {0}", contact.EmailAddress));
             return RedirectToAction("Index", new { contactId });
         }
 

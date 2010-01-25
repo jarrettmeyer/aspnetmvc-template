@@ -5,11 +5,26 @@ namespace Project.Core.Controllers
 {
     public class ApplicationController : Controller
     {
-        protected IAppScope _appScope;
+        protected readonly IAppScope _appScope;
 
         public ApplicationController(IAppScope appScope)
         {
             _appScope = appScope;
+            CreateController();
+        }
+
+        private void CreateController()
+        {
+            OnControllerCreated();
+        }
+
+        protected virtual void OnControllerCreated()
+        {
+            if (_appScope.IsNewSession)
+            {
+                _appScope.AddInfo("Welcome. This appears to be your first visit!");
+            }
+            _appScope.AddWarning("This site is currently being developed.");
         }
     }
 }

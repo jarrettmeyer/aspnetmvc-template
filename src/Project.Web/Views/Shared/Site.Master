@@ -19,6 +19,7 @@
             </div>
         </div>
         <div id="content-outer">
+            <% Html.RenderAction("Index", "Notifications"); %>
             <div id="content-inner">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             </div>            

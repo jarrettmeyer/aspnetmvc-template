@@ -6,14 +6,14 @@ using Project.Core.Models.Entities;
 namespace Project.Core.Controllers
 {
     public class ContactsController : ApplicationController
-    {
+    {        
         private readonly IRepository _repository;
 
-        public ContactsController(IRepository repository, IAppScope appScope)
+        public ContactsController(IRepository repository, IAppScope appScope)            
             : base(appScope)
         {
-            Ensure.ArgumentNotNull(repository, "repository");
-            _repository = repository;
+            Ensure.ArgumentNotNull(repository, "repository");            
+            _repository = repository;            
         }
 
         [AcceptVerbs(HttpVerbs.Post), ValidateAntiForgeryToken]
@@ -24,6 +24,7 @@ namespace Project.Core.Controllers
             {
                 return PartialView("ShowPartial", contact);
             }
+            _appScope.AddSuccess("Successfully created a new contact");
             return RedirectToAction("Index");
         }
 
@@ -34,10 +35,10 @@ namespace Project.Core.Controllers
             if (contact == null)
             {
                 Log.BoundTo(this).WriteWarningMessage(string.Format("Attempted to delete contact with ID {0}", id));
-                return RedirectToAction("Index");
+                return Json(false);
             }
             _repository.Delete(contact);
-            return RedirectToAction("Index");
+            return Json(true);
         }
 
         public ActionResult Details(int id)

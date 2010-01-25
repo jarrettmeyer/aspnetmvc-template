@@ -20,6 +20,7 @@ namespace Project.Core.Lib.Infrastructure
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
 
             // Nested route for Contacts/Notes
             routes.MapRoute("CreateNote", "Contacts/{contactId}/Notes", new { controller = "Notes", action = "Create", contactId = 0 }, new { contactId = @"\d+", method = new HttpMethodConstraint("POST") });

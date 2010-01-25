@@ -20,7 +20,7 @@
             type: "DELETE",
             url: url,
             data: formData,
-            success: function() { window.location.reload(); }
+            success: function() { window.location = "/Contacts"; }
         });
     });
 });

@@ -18,8 +18,7 @@ namespace Project.Core.Controllers
         }
 
         protected override void OnControllerCreated()
-        {
-            _appScope.AddWarning("Ack!");            
+        {            
         }
     }
 }

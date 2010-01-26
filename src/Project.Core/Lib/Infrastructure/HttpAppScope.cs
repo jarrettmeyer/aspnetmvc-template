@@ -48,8 +48,11 @@ namespace Project.Core.Lib.Infrastructure
         {
             Ensure.ArgumentNotNull(notification, "notification");
             var notifications = GetNotificationsInternal();
-            notifications.Add(notification);
-            SetNotfications(notifications);
+            if (!notifications.Contains(notification))
+            {
+                notifications.Add(notification);
+                SetNotfications(notifications);
+            }            
         }
 
         public void AddSuccess(string success)

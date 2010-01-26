@@ -20,11 +20,7 @@ namespace Project.Core.Controllers
         public ActionResult Create(Contact contact)
         {
             _repository.Insert(contact);
-            if (_appScope.IsXhr)
-            {
-                return PartialView("ShowPartial", contact);
-            }
-            _appScope.AddSuccess("Successfully created a new contact");
+            _appScope.AddSuccess("New contact was successfully created.");
             return RedirectToAction("Index");
         }
 
@@ -32,12 +28,8 @@ namespace Project.Core.Controllers
         public ActionResult Delete(int id)
         {
             var contact = _repository.FindById<Contact>(id);
-            if (contact == null)
-            {
-                Log.BoundTo(this).WriteWarningMessage(string.Format("Attempted to delete contact with ID {0}", id));
-                return Json(false);
-            }
             _repository.Delete(contact);
+            _appScope.AddSuccess("Contact successfully deleted.");
             return Json(true);
         }
 
@@ -79,6 +71,7 @@ namespace Project.Core.Controllers
             original.FirstName = contact.FirstName;
             original.LastName = contact.LastName;
             _repository.Commit();
+            _appScope.AddSuccess("Contact successfully updated.");
             return RedirectToAction("Index");
         }
     }

@@ -111,24 +111,33 @@ tbody td {
 }
 
 .error-notification {  
-  background: #E09698 url('../Images/notification-error.png') no-repeat 10px 13px;
-  color: #910000;
-  border-color: #910000;
-  padding-left: 24px;
+  background: #E09698 url('../Images/notification-error.png') no-repeat 10px 13px;  
+  border-color: #990000;
+  padding-left: 36px;
+}
+
+.error-notification li {
+  color: #990000;
 }
 
 .info-notification {
-  background: #E09698 url('../Images/notification-info.png') no-repeat 10px 13px;
-  color: #910000;
-  border-color: #910000;
-  padding-left: 24px;
+  background: #66CCFF url('../Images/notification-info.png') no-repeat 10px 13px;  
+  border-color: #000099;
+  padding-left: 36px;
+}
+
+.info-notification li {
+  color: #000099;
 }
 
 .success-notification {
-  background: #E09698 url('../Images/notification-success.png') no-repeat 10px 13px;
-  color: #910000;
-  border-color: #910000;
-  padding-left: 24px;
+  background: #CCFFCC url('../Images/notification-success.png') no-repeat 10px 13px;  
+  border-color: #006600;
+  padding-left: 36px;
+}
+
+.success-notification li {
+  color: #006600;
 }
 
 .warning-notification {    

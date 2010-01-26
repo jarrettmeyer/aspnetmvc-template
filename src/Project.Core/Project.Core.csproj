@@ -91,6 +91,7 @@
     <Compile Include="Controllers\NotificationsController.cs" />
     <Compile Include="Ensure.cs" />
     <Compile Include="Lib\ActionFilters\HandleErrorWithElmahAttribute.cs" />
+    <Compile Include="Lib\ActionFilters\LogRequestsAttribute.cs" />
     <Compile Include="Lib\Html\ExtensionsOfHtmlHelper.cs" />
     <Compile Include="ExtensionsOfString.cs" />
     <Compile Include="ExtensionsOfUrlHelper.cs" />
@@ -109,9 +110,11 @@
     <Compile Include="Lib\Infrastructure\SqlNHibernateSessionConfiguration.cs" />
     <Compile Include="Lib\Infrastructure\WebContextModule.cs" />
     <Compile Include="Models\Entities\Contact.cs" />
+    <Compile Include="Models\Entities\PageRequest.cs" />
     <Compile Include="Models\Mappings\ContactMap.cs" />
     <Compile Include="Models\Mappings\NoteMap.cs" />
     <Compile Include="Models\Entities\Note.cs" />
+    <Compile Include="Models\Mappings\PageRequestMap.cs" />
     <Compile Include="Models\ViewModels\Notifications\ErrorNotification.cs" />
     <Compile Include="Models\ViewModels\Notifications\InfoNotification.cs" />
     <Compile Include="Models\ViewModels\ListNotesViewModel.cs" />

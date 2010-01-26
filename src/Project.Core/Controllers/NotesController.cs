@@ -4,7 +4,6 @@ using Project.Core.Lib.Data;
 using Project.Core.Lib.Infrastructure;
 using Project.Core.Models.Entities;
 using Project.Core.Models.ViewModels;
-using Project.Core.Models.ViewModels.Notifications;
 
 namespace Project.Core.Controllers
 {
@@ -26,7 +25,7 @@ namespace Project.Core.Controllers
             note.DateAdded = DateTime.Now;
             contact.AddNote(note);
             _repository.Commit();
-            _appScope.AddSuccess(string.Format("Successfully created new note for {0}", contact.EmailAddress));
+            _appScope.AddSuccess(string.Format("Note was successfully created for {0}", contact.EmailAddress));
             return RedirectToAction("Index", new { contactId });
         }
 
@@ -35,11 +34,8 @@ namespace Project.Core.Controllers
         {
             var note = _repository.FindById<Note>(id);            
             _repository.Delete(note);
-            if (_appScope.IsXhr)
-            {
-                return Json(true);
-            }
-            return RedirectToAction("Index");            
+            _appScope.AddSuccess("Note was successfully deleted.");
+            return Json(true);            
         }
 
         public ActionResult Edit(int id)
@@ -73,6 +69,7 @@ namespace Project.Core.Controllers
             var original = _repository.FindById<Note>(id);            
             original.NoteText = note.NoteText;
             _repository.Commit();
+            _appScope.AddSuccess("Note was successfully updated.");
             return new EmptyResult();
         }
     }

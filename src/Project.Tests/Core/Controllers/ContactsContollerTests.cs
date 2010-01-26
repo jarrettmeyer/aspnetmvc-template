@@ -10,24 +10,6 @@ namespace Project.Core.Controllers
     public class ContactsContollerTests
     {
         [Fact]
-        public void TestCreateAsXhrReturnsPartial()
-        {
-            // Assemble
-            var scope = new Mock<IAppScope>();
-            scope.SetupGet(x => x.IsXhr).Returns(true);
-            var repo = new Mock<IRepository>();
-            var controller = new ContactsController(repo.Object, scope.Object);
-            
-            // Act
-            var contact = new Contact();
-            var result = controller.Create(contact);
-
-            // Assert
-            var partialViewResult = Assert.IsType<PartialViewResult>(result);
-            Assert.IsType<Contact>(partialViewResult.ViewData.Model);
-        }
-
-        [Fact]
         public void TestCreateReturnsIndex()
         {
             // Assemble

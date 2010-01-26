@@ -100,7 +100,6 @@ tbody td {
   width: 100%;
   border: 3px solid #5B5B5B;
   background-color: #C0C0C0;
-  color: #5B5B5B;
   font-weight: bold;
   padding: 0.8em;
   margin-bottom: 1em;
@@ -109,6 +108,37 @@ tbody td {
 .notification ul {
   list-style-type: none;
   margin: 0;
+}
+
+.error-notification {  
+  background: #E09698 url('../Images/notification-error.png') no-repeat 10px 13px;
+  color: #910000;
+  border-color: #910000;
+  padding-left: 24px;
+}
+
+.info-notification {
+  background: #E09698 url('../Images/notification-info.png') no-repeat 10px 13px;
+  color: #910000;
+  border-color: #910000;
+  padding-left: 24px;
+}
+
+.success-notification {
+  background: #E09698 url('../Images/notification-success.png') no-repeat 10px 13px;
+  color: #910000;
+  border-color: #910000;
+  padding-left: 24px;
+}
+
+.warning-notification {    
+  background: #FFFF99 url('../Images/notification-warning.png') no-repeat 10px 13px;  
+  border-color: #FF6600;
+  padding-left: 36px;
+}
+
+.warning-notification li {
+  color: #FF6600;
 }
 
 

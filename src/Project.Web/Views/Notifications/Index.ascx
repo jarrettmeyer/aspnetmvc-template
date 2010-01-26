@@ -6,7 +6,7 @@
             <div class="notification success-notification">
                 <ul>
                     <% foreach (var notification in Model.GetNotifications<SuccessNotification>()) { %> 
-                        <%= Html.Encode(notification.Message) %>
+                        <li><%= Html.Encode(notification.Message) %></li>
                     <% } %>
                 </ul>                
             </div>
@@ -15,7 +15,7 @@
             <div class="notification error-notification">
                 <ul>
                     <% foreach (var notification in Model.GetNotifications<ErrorNotification>()) { %> 
-                        <%= Html.Encode(notification.Message) %>
+                        <li><%= Html.Encode(notification.Message) %></li>
                     <% } %>
                 </ul>                
             </div>
@@ -24,7 +24,7 @@
             <div class="notification warning-notification">
                 <ul>
                     <% foreach (var notification in Model.GetNotifications<WarningNotification>()) { %> 
-                        <%= Html.Encode(notification.Message) %>
+                        <li><%= Html.Encode(notification.Message) %></li>
                     <% } %>
                 </ul>                
             </div>
@@ -33,7 +33,7 @@
             <div class="notification info-notification">
                 <ul>
                     <% foreach (var notification in Model.GetNotifications<InfoNotification>()) { %> 
-                        <%= Html.Encode(notification.Message) %>
+                        <li><%= Html.Encode(notification.Message) %></li>
                     <% } %>
                 </ul>                
             </div>
